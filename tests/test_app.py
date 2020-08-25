@@ -1,5 +1,5 @@
 """
-utils
+APP Test
 """
 
 from tests.base import BaseTestCase
@@ -18,7 +18,7 @@ class AppTests(BaseTestCase):
         resp = self.client.get("/")
         self.assertTrue(resp.status_code == 405)
 
-    def test_add_hmac_signature_post(self):
+    def test_add_hmac_signature_post_with_data(self):
         """
         POST client data and create a HMAC signature.
         :return: assert checks if status code is 200 and Signature is added to the client data
@@ -28,3 +28,12 @@ class AppTests(BaseTestCase):
         response = resp.data
         self.assertTrue(status_code == 200)
         self.assertTrue("Signature=" in response.decode(self.encoding))
+
+    def test_add_hmac_signature_post_without_data(self):
+        """
+        POST empty data and try to create a HMAC signature.
+        :return: assert checks if status code is 200 and Signature is added to the client data
+        """
+        resp = self.client.post("/")
+        status_code = resp.status_code
+        self.assertTrue(status_code == 403)

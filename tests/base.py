@@ -1,5 +1,5 @@
 """
-Base module test
+Base Test
 """
 
 from unittest import TestCase
