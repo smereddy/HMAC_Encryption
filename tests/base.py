@@ -26,6 +26,5 @@ class BaseTestCase(TestCase):
         self.client_data = fake.text()
 
         # Config items
-        self.url = "http://localhost:5000"
         self.encoding = "utf-8"
 
