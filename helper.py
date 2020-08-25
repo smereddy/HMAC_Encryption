@@ -24,4 +24,4 @@ class HMAC_Helper:
         data = self.data.decode(self.encoding) + "&Signature=" + self.signature
         # return data,200
         return_data_type = "{" + data + "}"
-        return return_data_type, 200
+        return return_data_type

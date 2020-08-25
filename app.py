@@ -21,7 +21,7 @@ def add_hmac_signature():
         if not data:
             return "BAD REQUEST", 403  # Return 403 if data is empty
         add_sign = HMAC_Helper(data)
-        return add_sign.create_hmac_signature()  # Return signed data
+        return add_sign.create_hmac_signature(), 200 # Return signed data
     return "METHOD NOT ALLOWED", 405  # Return 405 if not Request is not POST
 
 
