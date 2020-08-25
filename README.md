@@ -13,7 +13,7 @@ To run included unit test, run:
 
 ```shell script
 
-$ python -m unittest tests.test_app.AppTests `
+$ python -m unittest tests.test_app.AppTests
 ```
 
 
