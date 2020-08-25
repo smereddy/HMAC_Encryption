@@ -7,7 +7,7 @@
 * Create a virtual venv and activate it
 * run `$ pip install -r requirements.txt`
 
-## Run Unit test
+## Run Unit Test
 
 To run included unit test, run: 
 
@@ -17,7 +17,7 @@ $ python -m unittest tests.test_app.AppTests `
 ```
 
 
-## Test by Post data
+## Test by posting data
 
 * Run Flask server: '$ flask run'
 * Once your flask server is running, run and command below:
