@@ -19,7 +19,7 @@ $ python -m unittest tests.test_app.AppTests `
 
 ## Test by posting data
 
-* Run Flask server: '$ flask run'
+* Run Flask server: `$ flask run`
 * Once your flask server is running, run and command below:
 
 ```shell script
