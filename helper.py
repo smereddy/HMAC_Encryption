@@ -21,7 +21,12 @@ class HMAC_Helper:
         Create and add HMAC signature to the user data
         :return: user data with HMAC signature added
         """
-        data = self.data.decode(self.encoding) + "&Signature=" + self.signature
-        # return data,200
-        return_data_type = "{" + data + "}"
-        return return_data_type
+        return self.data.decode(self.encoding) + "&Signature=" + self.signature
+
+    def verify_hmac_signature(self, user_signature):
+        """
+        Create and add HMAC signature to the user data
+        :return: user data with HMAC signature added
+        """
+        # Ensure the two signatures match
+        return str(self.signature) == str(user_signature)
