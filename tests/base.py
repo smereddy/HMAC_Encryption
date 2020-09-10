@@ -27,4 +27,3 @@ class BaseTestCase(TestCase):
 
         # Config items
         self.encoding = "utf-8"
-

@@ -2,9 +2,8 @@
 Helper Test
 """
 
-from tests.base import BaseTestCase
-
 from helper import HMAC_Helper
+from tests.base import BaseTestCase
 
 
 class HMACHelperTests(BaseTestCase):
@@ -23,4 +22,3 @@ class HMACHelperTests(BaseTestCase):
         """
         response = self.hmac_object.create_hmac_signature()
         self.assertTrue("Signature=" in response)
-

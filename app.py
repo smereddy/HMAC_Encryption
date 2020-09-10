@@ -9,7 +9,7 @@ load_dotenv()
 app = Flask(__name__)
 
 
-@app.route("/", methods=['POST'])
+@app.route("/", methods=["POST"])
 def add_hmac_signature():
     """
     POST Request: receive data from the user and add HMAC Signature
@@ -22,10 +22,10 @@ def add_hmac_signature():
     if not data:
         return "BAD REQUEST", 403  # Return 403 if data is empty
     add_sign = HMAC_Helper(data)
-    return add_sign.create_hmac_signature(), 200 # Return signed data
+    return add_sign.create_hmac_signature(), 200  # Return signed data
 
 
-@app.route("/validate", methods=['POST'])
+@app.route("/validate", methods=["POST"])
 def validate_hmac_signature():
     """
     POST Request: receive data from the user and verify HMAC Signature
@@ -37,11 +37,11 @@ def validate_hmac_signature():
     raw_data = data.decode("utf-8")
     # Check if data exist and its not empty
     if not data or "&Signature=" not in raw_data:
-        return "Cannot process request, BAD REQUEST", 400    # Return 403 if data is empty
+        return "Cannot process request, BAD REQUEST", 400  # Return 403 if data is empty
     cleaned_data = raw_data.split("&Signature=")
     add_sign = HMAC_Helper(cleaned_data[0].encode())
     verified = add_sign.verify_hmac_signature(cleaned_data[1])
-    return "Verified", 200 if verified else "Not Verified", 403 # Return Verified data
+    return "Verified", 200 if verified else "Not Verified", 403  # Return Verified data
 
 
 if __name__ == "__main__":

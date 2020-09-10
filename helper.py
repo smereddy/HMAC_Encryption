@@ -5,6 +5,7 @@ import hashlib
 import hmac
 import os
 
+
 class HMAC_Helper:
     """
     HMAC Helper class: This can be extend in future to perform verification and other tasksa
@@ -13,7 +14,9 @@ class HMAC_Helper:
     def __init__(self, data):
         self.data = data
         self.secret_key = os.getenv("SHARED_SECRET_KEY").encode()
-        self.signature = hmac.new(self.secret_key, self.data, hashlib.sha256).hexdigest()
+        self.signature = hmac.new(
+            self.secret_key, self.data, hashlib.sha256
+        ).hexdigest()
         self.encoding = "utf-8"
 
     def create_hmac_signature(self):
